@@ -5,10 +5,13 @@ class Unrelated {};
 
 int main(void)
 {
-    Parent a;
+    Child1 a;                               // reference value
 
-    Child1 *b = &a;
-    Child1 *c = static_cast<Child1 *>(&a);
+    Parent *b = &a;                         // implitic upcast -> OK
+    Child1 *c = b;                          // implitic downcast -> NO
+    Child2 *d = static_cast<Child2 *>(b);  // explicit downacst -> OK
+
+    Unrelated *e = static_cast<Unrelated *>(&a); // explicit conversion -> NO
 
 
     return (0);

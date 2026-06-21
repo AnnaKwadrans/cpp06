@@ -4,8 +4,10 @@
 # include <string>
 # include <iostream>
 # include <cstdlib>
+# include <sstream>
+# include <iomanip>
 
-typedef enum Type {
+typedef enum eType {
     CHAR,
     INT,
     FLOAT,
@@ -14,13 +16,17 @@ typedef enum Type {
 
 class ScalarConverter
 {
-    public:
+    private:
+
         ScalarConverter();
         ScalarConverter(const ScalarConverter &other);
         ~ScalarConverter();
         ScalarConverter &operator=(const ScalarConverter &other);
+    
+    public:
 
         static void convert(const std::string &str);
+
 };
 
 #endif
